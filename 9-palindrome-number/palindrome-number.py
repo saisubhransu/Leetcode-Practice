@@ -6,10 +6,7 @@ class Solution:
             last = num % 10
             res = (res * 10) + last
             num = num // 10
-        if(res == x):
-            return True
-        else:
-            return False        
+        return x == res        
 
            
 
