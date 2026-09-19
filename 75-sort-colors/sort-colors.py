@@ -3,18 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        zero = 0
-        one = 0
-        two = 0
         n = len(a)
-        for i in range(0,n):
-            if a[i] == 0:
-                zero += 1
-            elif a[i] == 1:
-                one += 1
+        low = 0
+        mid = 0
+        high = n-1
+        while(mid <= high):
+            if a[mid] == 0:
+                a[mid],a[low] = a[low],a[mid]
+                low += 1
+                mid += 1
+            elif a[mid] == 1:
+                mid += 1
             else:
-                two += 1
-        a[:] = [0]*zero + [1]*one + [2]*two               
+                a[mid],a[high] = a[high],a[mid]
+                high -= 1
+        return a            
 
-
-        
